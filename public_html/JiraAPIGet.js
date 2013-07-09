@@ -14,6 +14,23 @@ function logBasic () {
 
 }; 
 */
+function tableMake(e,k){
+
+    for (i=1;i<=e;i++){
+        if(i===1){
+            document.getElementsByTagName('p')[0].innerHTML+="<table><tbody></tbody></table>";
+        }
+        tab = document.getElementsByTagName("tbody")[0];
+        tab.innerHTML+="<tr id=\""+i+"\"></tr>";
+        row=document.getElementById(i);
+        for(j=1;j<=k;j++){
+            row.innerHTML+="<td id=\""+i+":"+j+"\">"+i+":"+j+"</td>";
+        
+        }
+    }
+}
+
+
 
 function getCount(name,jql){
     var oReq = new XMLHttpRequest();
@@ -22,7 +39,7 @@ function getCount(name,jql){
     oReq.open("get", "https://qualtrics.atlassian.net/rest/api/2/search?jql="+jql+"&maxResults=0", true);
     oReq.send();
 }
-
+tableMake(65,2);
 
 //example
 //exJQL="status+in+(Open,+%22In+Progress%22,+Reopened,+Resolved,+%22On+Hold%22,+Verify,+%22In+Test%22,+Trashed,+%22In+Staging%22,+Merging,+Releasing)";
@@ -37,11 +54,11 @@ getCount("07. Aggregate - Trivial","project in (TS, CS, MOB, REP, RS, SI, TA) AN
 getCount("08. Aggregate - Open","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND priority in (Blocker, Critical, Major, Minor, Trivial) AND status in (Open)");
 getCount("09. Aggregate - Verify/In Progress","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND priority in (Blocker, Critical, Major, Minor, Trivial) AND status in (\"In Progress\", Verify)");
 getCount("10. Aggregate - Reopened","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND priority in (Blocker, Critical, Major, Minor, Trivial) AND status in (Reopened)");
-getCount("11. Aggregate - Closed","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND priority in (Blocker, Critical, Major, Minor, Trivial) AND status in (Closed)");
+getCount("11. Aggregate - Closed<br>","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND priority in (Blocker, Critical, Major, Minor, Trivial) AND status in (Closed)");
 
-getCount("<br>12. Origins - Total Weekly","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND created >= -7d");
+getCount("12. Origins - Total Weekly<br>","project in (TS, CS, MOB, REP, RS, SI, TA) AND issuetype = Bug AND created >= -7d");
 
-getCount("<br>13. 360 - Not Closed","project = TS AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("13. 360 - Not Closed","project = TS AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("14. 360 - Open","project = TS AND issuetype = Bug AND status in (Open)");
 getCount("15. 360 - Verify/In Progress","project = TS AND issuetype = Bug AND status in (Verify)");
 getCount("16. 360 - Reopened","project = TS AND issuetype = Bug AND status in (Reopened)");
@@ -49,9 +66,9 @@ getCount("17. 360 - Trivial","project = TS AND issuetype = Bug AND priority = Tr
 getCount("18. 360 - Minor","project = TS AND issuetype = Bug AND priority = Minor AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("19. 360 - Major","project = TS AND issuetype = Bug AND priority = Major AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("20. 360 - Critical","project = TS AND issuetype = Bug AND priority = Critical AND status in (Open, \"In Progress\", Reopened, Verify)");
-getCount("21. 360 - Blocker","project = TS AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("21. 360 - Blocker<br>","project = TS AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
 
-getCount("<br>22. CS - Not Closed","project = CS AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("22. CS - Not Closed","project = CS AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("23. CS - Open","project = CS AND issuetype = Bug AND status in (Open)");
 getCount("24. CS - Verify/In Progress","project = CS AND issuetype = Bug AND status in (Verify)");
 getCount("25. CS - Reopened","project = CS AND issuetype = Bug AND status in (Reopened)");
@@ -59,9 +76,9 @@ getCount("26. CS - Trivial","project = CS AND issuetype = Bug AND priority = Tri
 getCount("27. CS - Minor","project = CS AND issuetype = Bug AND priority = Minor AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("28. CS - Major","project = CS AND issuetype = Bug AND priority = Major AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("29. CS - Critical","project = CS AND issuetype = Bug AND priority = Critical AND status in (Open, \"In Progress\", Reopened, Verify)");
-getCount("30. CS - Blocker","project = CS AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("30. CS - Blocker<br>","project = CS AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
 
-getCount("<br>31. MOB - Not Closed","project = MOB AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("31. MOB - Not Closed","project = MOB AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("32. MOB - Open","project = MOB AND issuetype = Bug AND status in (Open)");
 getCount("33. MOB - Verify/In Progress","project = MOB AND issuetype = Bug AND status in (Verify)");
 getCount("34. MOB - Reopened","project = MOB AND issuetype = Bug AND status in (Reopened)");
@@ -69,9 +86,9 @@ getCount("35. MOB - Trivial","project = MOB AND issuetype = Bug AND priority = T
 getCount("36. MOB - Minor","project = MOB AND issuetype = Bug AND priority = Minor AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("37. MOB - Major","project = MOB AND issuetype = Bug AND priority = Major AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("38. MOB - Critical","project = MOB AND issuetype = Bug AND priority = Critical AND status in (Open, \"In Progress\", Reopened, Verify)");
-getCount("39. MOB - Blocker","project = MOB AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("39. MOB - Blocker<br>","project = MOB AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
 
-getCount("<br>40. RP - Not Closed","project = RP AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("40. RP - Not Closed","project = RP AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("41. RP - Open","project = RP AND issuetype = Bug AND status in (Open)");
 getCount("42. RP - Verify/In Progress","project = RP AND issuetype = Bug AND status in (Verify)");
 getCount("43. RP - Reopened","project = RP AND issuetype = Bug AND status in (Reopened)");
@@ -79,9 +96,9 @@ getCount("44. RP - Trivial","project = RP AND issuetype = Bug AND priority = Tri
 getCount("45. RP - Minor","project = RP AND issuetype = Bug AND priority = Minor AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("46. RP - Major","project = RP AND issuetype = Bug AND priority = Major AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("47. RP - Critical","project = RP AND issuetype = Bug AND priority = Critical AND status in (Open, \"In Progress\", Reopened, Verify)");
-getCount("48. RP - Blocker","project = RP AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("48. RP - Blocker<br>","project = RP AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
 
-getCount("<br>49. RS - Not Closed","project = RS AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("49. RS - Not Closed","project = RS AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("50. RS - Open","project = RS AND issuetype = Bug AND status in (Open)");
 getCount("51. RS - Verify/In Progress","project = RS AND issuetype = Bug AND status in (Verify)");
 getCount("52. RS - Reopened","project = RS AND issuetype = Bug AND status in (Reopened)");
@@ -89,9 +106,9 @@ getCount("53. RS - Trivial","project = RS AND issuetype = Bug AND priority = Tri
 getCount("54. RS - Minor","project = RS AND issuetype = Bug AND priority = Minor AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("55. RS - Major","project = RS AND issuetype = Bug AND priority = Major AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("56. RS - Critical","project = RS AND issuetype = Bug AND priority = Critical AND status in (Open, \"In Progress\", Reopened, Verify)");
-getCount("57. RS - Blocker","project = RS AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("57. RS - Blocker<br>","project = RS AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
 
-getCount("<br>58. SI - Not Closed","project = SI AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("58. SI - Not Closed","project = SI AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("59. SI - Open","project = SI AND issuetype = Bug AND status in (Open)");
 getCount("60. SI - Verify/In Progress","project = SI AND issuetype = Bug AND status in (Verify)");
 getCount("61. SI - Reopened","project = SI AND issuetype = Bug AND status in (Reopened)");
@@ -99,9 +116,9 @@ getCount("62. SI - Trivial","project = SI AND issuetype = Bug AND priority = Tri
 getCount("63. SI - Minor","project = SI AND issuetype = Bug AND priority = Minor AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("64. SI - Major","project = SI AND issuetype = Bug AND priority = Major AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("65. SI - Critical","project = SI AND issuetype = Bug AND priority = Critical AND status in (Open, \"In Progress\", Reopened, Verify)");
-getCount("67. SI - Blocker","project = SI AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("67. SI - Blocker<br>","project = SI AND issuetype = Bug AND priority = Blocker AND status in (Open, \"In Progress\", Reopened, Verify)");
 
-getCount("<br>68. TA - Not Closed","project = TA AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
+getCount("68. TA - Not Closed","project = TA AND issuetype = Bug AND status in (Open, \"In Progress\", Reopened, Verify)");
 getCount("69. TA - Open","project = TA AND issuetype = Bug AND status in (Open)");
 getCount("70. TA - Verify/In Progress","project = TA AND issuetype = Bug AND status in (Verify)");
 getCount("71. TA - Reopened","project = TA AND issuetype = Bug AND status in (Reopened)");
