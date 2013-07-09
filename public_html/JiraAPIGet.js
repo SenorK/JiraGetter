@@ -6,14 +6,12 @@ function logExp () {
      
      document.getElementsByTagName("p")[0].innerHTML+="<span>"+this.name+": </span><span class='num'>"+this.responseText.split("total\":")[1].split(",")[0]+"</span><br>";
 
+
+//Add to table also
+  //  row=this.responseText.split(".")[0];
+    
 }; 
 
-/*
-function logBasic () {
-     console.log(this.responseText);
-
-}; 
-*/
 function tableMake(e,k){
 
     for (i=1;i<=e;i++){
@@ -39,7 +37,8 @@ function getCount(name,jql){
     oReq.open("get", "https://qualtrics.atlassian.net/rest/api/2/search?jql="+jql+"&maxResults=0", true);
     oReq.send();
 }
-tableMake(65,2);
+function{tableMake(65,2)};
+
 
 //example
 //exJQL="status+in+(Open,+%22In+Progress%22,+Reopened,+Resolved,+%22On+Hold%22,+Verify,+%22In+Test%22,+Trashed,+%22In+Staging%22,+Merging,+Releasing)";
