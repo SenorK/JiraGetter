@@ -42,16 +42,10 @@ function getCount(name,jql){
 }
 window.onload=function(){
     tableMake(75,3);
-    firstRows={a:3,b:12,c:13,d:22,e:31,f:40,g:49,h:58,i:68};
+    //hide superfluous rows
     styleRows=document.getElementsByTagName("tr");
     styleRows[1].style.display="none";
     styleRows[65].style.display="none";
-    for(x in firstRows){
-        styleRows[firstRows[x]-1].style.verticalAlign="bottom";
-    }
-  
-    
-    
 };
 
 //example
